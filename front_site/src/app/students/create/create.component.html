@@ -1,0 +1,139 @@
+<div class="container">
+  <h1 class="mt-4">Create New Record</h1>
+
+  <div class="row">
+    <div class="col-6 col-md-4 mb-2">
+      <a href="#" routerLink="/student/index/" class="btn btn-success mt-4"
+        >Back</a
+      >
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group mt-2 col-12 col-lg-6">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        formControlName="name"
+        class="form-control"
+      />
+      <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+        <div *ngIf="f.name.errors?.required">Name is required</div>
+        <div *ngIf="f.name.errors?.pattern">
+          Name has conatins only [a-z A-Z] Character
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-2 col-12 col-lg-6">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.email.touched && f.email.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.email.errors?.required">Email is required</div>
+        <div *ngIf="f.email.errors?.email">
+          Email is not in a correct format
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-2 col-12 col-lg-6">
+      <label for="mobile">Mobile</label>
+      <input
+        type="text"
+        name="mobile"
+        id="mobile"
+        formControlName="mobile"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.mobile.touched && f.mobile.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.mobile.errors?.required">Mobile No is required</div>
+        <div *ngIf="f.mobile.errors?.pattern">
+          Mobile No must be in correct format & accept only 10 digits
+        </div>
+      </div>
+    </div>
+    <div class="form-group mt-2 col-12 col-lg-6">
+      <label for="address">Address</label>
+
+      <textarea
+        class="form-control"
+        id="address"
+        name="address"
+        formControlName="address"
+      ></textarea>
+
+      <div
+        *ngIf="f.address.touched && f.address.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.address.errors?.required">Adddress is required</div>
+      </div>
+    </div>
+
+    <div class="form-group mt-2 col-12 col-lg-6">
+      <label for="college">College</label>
+      <input
+        type="text"
+        name="college"
+        id="college"
+        formControlName="college"
+        class="form-control"
+      />
+      <div
+        *ngIf="f.college.touched && f.college.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.college.errors?.required">College is required</div>
+      </div>
+    </div>
+
+    <div class="form-group mt-2 col-12 col-lg-6">
+      <label for="course_name">Course</label>
+      <!-- <input
+        type="text"
+        name="mobile"
+        id="mobile"
+        formControlName="mobile"
+        class="form-control"
+      /> -->
+      <select
+        class="form-control"
+        name="course_name"
+        id="course_name"
+        formControlName="course_name"
+        aria-label="Default select example"
+      >
+        <option selected value="">Open this select menu</option>
+        <option value="java">MCA</option>
+        <option value="dotnet">BCA</option>
+        <option value="php">BTECH</option>
+      </select>
+      <div
+        *ngIf="f.course_name.touched && f.course_name.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.course_name.errors?.required">
+          Course Name is required
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>
