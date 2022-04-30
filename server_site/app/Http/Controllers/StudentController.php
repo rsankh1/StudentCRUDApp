@@ -6,7 +6,12 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\Course;
 use DB;
+use JWTAuth;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Validator;
+
 
 class StudentController extends Controller
 {
@@ -116,6 +121,7 @@ class StudentController extends Controller
 
     public function find($id)
     {
+
         //return $id;
         $info = DB::transaction(
             function () use (&$id) {
@@ -195,7 +201,7 @@ class StudentController extends Controller
             function () use (&$id) {
                 //$data = Student::select("*")->where('students.id', '=', $id);
                 $result = Student::destroy($id);
-                return response()->json(["result" =>$result ]);
+                return response()->json(["result" => $result]);
             }
         );
         return $info;

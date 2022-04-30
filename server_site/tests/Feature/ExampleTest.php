@@ -14,8 +14,10 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
-        $response = $this->get('/');
+        $response = $this->get('/students');
 
-        $response->assertStatus(200);
+
+        dd($response->json());
+        $response->assertJson($response->json());
     }
 }

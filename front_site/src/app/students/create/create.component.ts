@@ -49,7 +49,7 @@ export class CreateComponent implements OnInit {
   submit() {
     console.log(this.form.value);
     this.studentService.create(this.form.value).subscribe((res: any) => {
-      console.log(res);
+      console.log('Message is ' + JSON.stringify(res));
       if (res.result == 'success') {
         console.log('Student info created successfully');
         this.router.navigateByUrl('student/index');

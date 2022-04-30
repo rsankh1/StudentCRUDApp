@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', '*', 'http://localhost:4200/*', 'http://localhost:8000/*'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', '*', 'http://localhost:4200/*', 'http://localhost:8000/*', 'http://localhost:8000/register'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*', 'http://localhost:4200/*', 'http://localhost:8000/*'],
+    'allowed_origins' => ['*', 'http://localhost:4200/*', 'http://localhost:8000/*', 'http://localhost:8000/register'],
 
     'allowed_origins_patterns' => [],
 
